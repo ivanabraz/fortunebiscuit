@@ -1,35 +1,35 @@
-import {answers} from './biscuitPapers.js';
+import {answers} from './cookiePapers.js';
 
 $(document).ready(function () {
 
     // PARTS
-    var biscuit = $('.biscuit'),
-        biscuitText = $('#biscuitText'),
-        biscuitLeftSide = $('.biscuitLeftSide'),
-        biscuitPaper = $('.biscuitPaper'),
-        biscuitRightSide = $('.biscuitRightSide'),
+    var cookie = $('.cookie'),
+        cookieText = $('#cookieText'),
+        cookieLeftSide = $('.cookieLeftSide'),
+        cookiePaper = $('.cookiePaper'),
+        cookieRightSide = $('.cookieRightSide'),
         open = false;
 
 
-    // BUILD CLOSED BISCUIT
-    function closedBiscuit() {	
-        biscuitText.hide();
-        biscuitPaper.hide();    
-        biscuit.attr('id', 'getFortune');
-        biscuitLeftSide.addClass('biscuitLeftSideClosed');
-        biscuitRightSide.addClass('biscuitRightSideWithPaperClosed');
-        biscuitRightSide.delay(4000).attr('src', './img/biscuitRightSideWithPaper.svg');
+    // BUILD CLOSED cookie
+    function closedCookie() {	
+        cookieText.hide();
+        cookiePaper.hide();    
+        cookie.attr('id', 'getFortune');
+        cookieLeftSide.addClass('cookieLeftSideClosed');
+        cookieRightSide.addClass('cookieRightSideWithPaperClosed');
+        cookieRightSide.delay(4000).attr('src', './img/cookieRightSideWithPaper.svg');
     }
-    closedBiscuit();
+    closedCookie();
 
     // GET FORTUNE FUNCTION
     $("#getFortune").on('click', function() {
 
-        if ($(biscuitPaper).is(':hidden')) {
-            biscuitText.fadeToggle(1000);
-            biscuitPaper.fadeToggle(1000);
-            biscuitLeftSide.removeClass('biscuitLeftSideClosed').addClass('biscuitLeftSideOpen');
-            biscuitRightSide.removeClass('biscuitRightSideWithPaperClosed').addClass('biscuitRightSideOpen').attr('src', './img/biscuitRightSide.svg');
+        if ($(cookiePaper).is(':hidden')) {
+            cookieText.fadeToggle(1000);
+            cookiePaper.fadeToggle(1000);
+            cookieLeftSide.removeClass('cookieLeftSideClosed').addClass('cookieLeftSideOpen');
+            cookieRightSide.removeClass('cookieRightSideWithPaperClosed').addClass('cookieRightSideOpen').attr('src', './img/cookieRightSide.svg');
     
             // PICK RANDOM ANSWER
             var ansIndex = Math.floor(Math.random() * (answers.length));
@@ -50,9 +50,9 @@ $(document).ready(function () {
             $("#fortuneNumber").text("Lucky numbers: " + number1 + ", " + number2 + ", " + number3 + ", " + number4 + ", " + number5);
         }
         else {
-            closedBiscuit();
-            biscuitLeftSide.removeClass('biscuitLeftSideOpen');
-            biscuitRightSide.removeClass('biscuitRightSideOpen');
+            closedCookie();
+            cookieLeftSide.removeClass('cookieLeftSideOpen');
+            cookieRightSide.removeClass('cookieRightSideOpen');
         }
     });
 
